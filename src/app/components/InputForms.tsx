@@ -39,8 +39,7 @@ export default function InputForms() {
               name="exercise"
               value={workout.exercise}
               onChange={handleExerciseChange}
-              placeholder="eg. Bench Press"
-              className="w-full bg-slate-800 border border-slate-700 rounded p-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full bg-slate-800 border border-slate-700 p-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -54,21 +53,41 @@ export default function InputForms() {
                 type="number"
                 value={workout.weight}
                 onChange={handleExerciseChange}
-                placeholder="eg. 135"
-                className="w-full bg-slate-800 border border-slate-700 rounded p-2 text-white"
+                className="w-full bg-slate-800 border border-slate-700 p-2 text-white"
               />
             </div>
 
             <div>
-              <label className="block text-xs uppercase text-slate-500 mb-1"></label>
-              <input />
+              <label className="block text-xs uppercase text-slate-500 mb-1">
+                Sets
+              </label>
+              <input
+                name="sets"
+                type="number"
+                value={workout.sets}
+                onChange={handleExerciseChange}
+                className="w-full bg-slate-800 border border-slate-700 p-2 text-white"
+              />
             </div>
 
             <div>
-              <label className="block text-xs uppercase text-slate-500 mb-1"></label>
-              <input />
+              <label className="block text-xs uppercase text-slate-500 mb-1">
+                Reps
+              </label>
+              <input
+                name="reps"
+                type="number"
+                value={workout.reps}
+                onChange={handleExerciseChange}
+                className="w-full bg-slate-800 border border-slate-700 p-2 text-white"
+              />
             </div>
           </div>
+
+          <button className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded flex items-center justify-center gap-2 transition-all">
+            <PlusCircle size={18} />
+            Log Set
+          </button>
         </form>
       </Card>
     </div>
