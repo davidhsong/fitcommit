@@ -28,12 +28,46 @@ export default function InputForms() {
   };
 
   return (
-    <div>
+    <div className="grid md:grid-cols-2 gap-6">
       <Card title="Workout Logger">
-        <form>
+        <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
           <div>
-            <label></label>
-            <input></input>
+            <label className="block text-xs uppercase text-slate-500 mb-1">
+              Exercise Name
+            </label>
+            <input
+              name="exercise"
+              value={workout.exercise}
+              onChange={handleExerciseChange}
+              placeholder="eg. Bench Press"
+              className="w-full bg-slate-800 border border-slate-700 rounded p-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <div className="grid grid-cols-3 gap-2">
+            <div>
+              <label className="block text-xs uppercase text-slate-500 mb-1">
+                Lbs
+              </label>
+              <input
+                name="weight"
+                type="number"
+                value={workout.weight}
+                onChange={handleExerciseChange}
+                placeholder="eg. 135"
+                className="w-full bg-slate-800 border border-slate-700 rounded p-2 text-white"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs uppercase text-slate-500 mb-1"></label>
+              <input />
+            </div>
+
+            <div>
+              <label className="block text-xs uppercase text-slate-500 mb-1"></label>
+              <input />
+            </div>
           </div>
         </form>
       </Card>
