@@ -1,3 +1,13 @@
 {
-  "logs": []
+  "logs": [
+    {
+      "id": 1768425692725,
+      "date": "2026-01-14T21:21:32.725Z",
+      "type": "workout",
+      "exercise": "bench press",
+      "weight": "135",
+      "reps": "10",
+      "sets": "3"
+    }
+  ]
 }

@@ -27,6 +27,34 @@ export default function InputForms() {
     });
   };
 
+  const saveWorkout = async () => {
+    if (!workout.exercise || !workout.weight) {
+      alert("you gotta fill in the exercise and weight sections");
+      return;
+    }
+    try {
+      const response = await fetch("/api/save-log", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(workout),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert("Workout was successfully logged and commited to github");
+        setWorkout({ exercise: "", weight: "", reps: "", sets: "" });
+      } else {
+        alert("Error: " + result.error);
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Failed to connect to server");
+    }
+  };
+
   return (
     <div className="grid md:grid-cols-2 gap-6">
       <Card title="Workout Logger">
@@ -84,7 +112,11 @@ export default function InputForms() {
             </div>
           </div>
 
-          <button className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded flex items-center justify-center gap-2 transition-all">
+          <button
+            onClick={saveWorkout}
+            type="button"
+            className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded flex items-center justify-center gap-2 transition-all"
+          >
             <PlusCircle size={18} />
             Log Set
           </button>
