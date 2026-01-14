@@ -8,6 +8,15 @@
       "weight": "135",
       "reps": "10",
       "sets": "3"
+    },
+    {
+      "id": 1768425695877,
+      "date": "2026-01-14T21:21:35.877Z",
+      "type": "workout",
+      "exercise": "bench press",
+      "weight": "135",
+      "reps": "10",
+      "sets": "3"
     }
   ]
 }
