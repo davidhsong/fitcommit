@@ -44,8 +44,22 @@ export default function InputForms() {
       const result = await response.json();
 
       if (response.ok) {
-        alert("Workout was successfully logged and commited to github");
-        setWorkout({ exercise: "", weight: "", reps: "", sets: "" });
+        // SUCCESS!
+
+        // 1. Notify user (optional, maybe remove alert for speed)
+        // alert("Saved!");
+
+        // 2. SMART RESET:
+        // We keep the 'exercise' field but clear 'weight' and 'reps'
+        // This allows you to type "145" -> Enter immediately for the next set.
+        setWorkout((prev) => ({
+          ...prev,
+          weight: "", // Clear weight
+          reps: "", // Clear reps (or keep it if you usually do fixed reps)
+          // exercise: prev.exercise <--- Implicitly kept because we used spread ...prev
+        }));
+
+        // If you are passing a "refresh" function from the parent, call it here to update the calendar instantly.
       } else {
         alert("Error: " + result.error);
       }
