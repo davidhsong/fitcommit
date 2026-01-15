@@ -16,10 +16,6 @@ export default function Home() {
         </header>
 
         <InputForms />
-
-        <div className="mt-8 text-center text-slate-600 text-sm">
-          input charts loading...
-        </div>
       </div>
     </main>
   );
